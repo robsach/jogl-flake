@@ -38,6 +38,8 @@
           export JOGAMPPATH=${jogamp-file}
           echo "[+] JOGAMPPATH set to $JOGAMPPATH"
 
+          export CLASSPATH=".:$JOGAMPPATH:$CLASSPATH"
+          echo "[+] CLASSPATH set to $CLASSPATH"
 
           # Add libxxf86vm to dynamic linker path, else can't find it
           export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath [ pkgs.libxxf86vm ]}:$LD_LIBRARY_PATH"
