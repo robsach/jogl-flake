@@ -29,10 +29,7 @@
 
         shellHook = ''
           echo "[+] jdk21"
-
-
-          # It is fetched (if not already present)
-          echo "[+] fetched jogamp-fat.jar"
+          echo "[+] fetched jogamp-fat.jar" # gets fetched if not in nix store
 
           # Used in aliases.sh
           export JOGAMPPATH=${jogamp-file}
@@ -43,7 +40,7 @@
 
           # Add libxxf86vm to dynamic linker path, else can't find it
           export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath [ pkgs.libxxf86vm ]}:$LD_LIBRARY_PATH"
-          echo "[+] LD_LIBRARY_PATH set to $LD_LIBRARY_PATH"
+          # echo "[+] LD_LIBRARY_PATH set to $LD_LIBRARY_PATH"
         '';
       };
     };
